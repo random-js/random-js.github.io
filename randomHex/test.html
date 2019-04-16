@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="2000" height="1000"></canvas>
+    <script type="text/javascript">
+      function genRandom (size) {
+        var random = [];
+        //var randomF = [];
+        console.log(size*size);
+        var i = size*size;
+        while (i > 0) {
+          i--;
+          random[random.length] = [
+            Math.floor(Math.random() * (16 - 0) + 0),
+            Math.floor(Math.random() * (16 - 0) + 0),
+            Math.floor(Math.random() * (16 - 0) + 0),
+            Math.floor(Math.random() * (16 - 0) + 0),
+            Math.floor(Math.random() * (16 - 0) + 0),
+            Math.floor(Math.random() * (16 - 0) + 0)
+          ]
+        }
+        for (var i = 0; i < random.length; i++) {
+          for (var ix = 0; ix < random[i].length; ix++) {
+            switch (random[i][ix]) {
+              case 10:
+                random[i][ix] = "A";
+                break;
+              case 11:
+                random[i][ix] = "B";
+                break;
+              case 12:
+                random[i][ix] = "C";
+                break;
+              case 13:
+                random[i][ix] = "D";
+                break;
+              case 14:
+                random[i][ix] = "E";
+                break;
+              case 15:
+                random[i][ix] = "F";
+                break;
+              default:
+                random[i][ix] = random[i][ix].toString()
+                break;
+            }
+          }
+          random[i] = (
+            random[i][0]+random[i][1]+random[i][2]+random[i][3]+random[i][4]+random[i][5]
+          );
+          /*var index = size;
+          var indexF = size*size;
+          while (index > 0) {
+            index--;
+            randomF[randomF.length] = [];
+            while (indexF < 0) {
+              indexF--;
+              //randomF[randomF.length][randomF[randomF.length].length] = random[indexF];
+            }
+          }*/
+        }
+        return random;
+      }
+
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      var grd = ctx.createLinearGradient(0, 0, 300, 0);
+
+
+
+      function fillColor () {
+        var fixd = genRandom(2);
+        /*grd.addColorStop(0, );
+        grd.addColorStop(0.33, ("#"+fixd[1]));
+        grd.addColorStop(0.66, ("#"+fixd[2]));
+        grd.addColorStop(1, ("#"+fixd[3]));
+        ctx.fillStyle = grd;
+        ctx.fillRect(10, 10, 300, 160);
+        */
+
+
+        ctx.fillStyle = ("#"+fixd[0]);
+        ctx.fillRect(0, 0, 200, 100);
+        ctx.fillStyle = ("#"+fixd[1]);
+        ctx.fillRect(200, 100, 200, 100);
+        ctx.fillStyle = ("#"+fixd[2]);
+        ctx.fillRect(400, 200, 200, 100);
+        ctx.fillStyle = ("#"+fixd[3]);
+        ctx.fillRect(600, 300, 200, 100);
+      }
+      setInterval(fillColor, 9)
+    </script>
+  </body>
+</html>
