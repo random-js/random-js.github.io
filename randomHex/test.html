@@ -70,8 +70,31 @@
       var ctx = c.getContext("2d");
       var grd = ctx.createLinearGradient(0, 0, 300, 0);
 
-
-
+      var x1 = {
+          x: 0,
+          y: 0,
+          width: 800,
+          length: 200
+      }
+      var x2 = {
+          x: 0,
+          y: 200,
+          width: 800,
+          length: 200
+      }
+      var x3 = {
+          x: 0,
+          y: 400,
+          width: 800,
+          length: 200
+      }
+      var x4 = {
+          x: 0,
+          y: 600,
+          width: 800,
+          length: 200
+      }
+      
       function fillColor () {
         var fixd = genRandom(2);
         /*grd.addColorStop(0, );
@@ -84,13 +107,13 @@
 
 
         ctx.fillStyle = ("#"+fixd[0]);
-        ctx.fillRect(0, 0, 800, 200);
+        ctx.fillRect(x1.x,x1.y,x1.width,x1.length);
         ctx.fillStyle = ("#"+fixd[1]);
-        ctx.fillRect(0, 200, 800, 200);
+        ctx.fillRect(x2.x,x2.y,x2.width,x2.length);
         ctx.fillStyle = ("#"+fixd[2]);
-        ctx.fillRect(0, 400, 800, 200);
+        ctx.fillRect(x3.x,x3.y,x3.width,x3.length);
         ctx.fillStyle = ("#"+fixd[3]);
-        ctx.fillRect(0, 600, 800, 200);
+        ctx.fillRect(x4.x,x4.y,x4.width,x4.length);
         //requestAnimationFrame(fillColor());
       }
       //requestAnimationFrame(fillColor());
